@@ -7,7 +7,7 @@ class Solution {
          while(r<fruits.length){
             hm.put(fruits[r], hm.getOrDefault(fruits[r], 0)+1);
 
-            while(hm.size()>=3){
+            if(hm.size()>=3){
                hm.put(fruits[l], hm.get(fruits[l])-1);
                if(hm.get(fruits[l]) == 0) hm.remove(fruits[l]);
                 l++;
