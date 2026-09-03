@@ -1,22 +1,13 @@
 class Solution {
     public boolean uniformArray(int[] nums1) {
-        int odd=0;
-        int even=0;
-        int smallestodd=Integer.MAX_VALUE;
-        Arrays.sort(nums1);
-        for(int i=0; i<nums1.length; i++){
-            if(nums1[i]%2==0 && smallestodd!=Integer.MAX_VALUE){
-                odd++;
-            }else if(nums1[i]%2==0){
-                even++;
-            }else{
-                odd++;
-                smallestodd=Math.min(smallestodd, nums1[i]);
-            }
+        int min = Integer.MAX_VALUE;
+        for(int c : nums1) {
+            min = Math.min(min, c);
         }
-        if(odd==nums1.length || even==nums1.length){
-            return true;
+        if(min % 2 == 1) return true;
+        for(int c : nums1) {
+            if(c % 2 == 1) return false;
         }
-        return false;
+        return true;
     }
 }
